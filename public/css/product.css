@@ -1,0 +1,71 @@
+.image-container {
+    display: flex;
+  margin-top: 60px ;
+  justify-content: space-between;
+  }
+  
+  .image-wrapper  {
+   
+  
+    position: relative;
+    flex: 1;
+    margin-right: 30px; 
+    width: auto;
+    border: 2px solid orange;
+    border-radius: 8px;
+    padding: 50px;
+    align-items: center;
+    
+    
+  }
+  .image-wrapper:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+  
+  }
+  
+  .image-wrapper svg {
+    top: 1%;
+    margin-left: 40%;
+    align-items: center;
+    display: block;
+  }
+  
+  .image-title {
+    position: absolute;
+    bottom: 1;
+    left: 0;
+    width: 150px;
+    
+    background-color: orange; 
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    text-align: center;
+    margin-left: 36%;
+    cursor: pointer; 
+    border-radius: 8px ;
+  }
+  
+  .image-wrapper h2{
+    
+    margin-bottom: 5%;
+    font-size: 30px;
+    
+    
+    color: rgb(0, 0, 0);
+    
+    text-align: center;
+    
+    
+    
+  }
+  .image-wrapper h4{
+    margin: 10px;
+    font-size: 20px;
+    
+    
+    color: rgb(0, 0, 0);
+    
+    text-align: center;
+    
+  }
