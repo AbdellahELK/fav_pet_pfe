@@ -17,6 +17,7 @@ use App\Http\Controllers\toycontroller;
 Route::get('/', function () {
     return view('pages.home');
 });
+<<<<<<< HEAD
 Route::get('/daycare', function () {
     return view('pages.services.daycare');
 });
@@ -35,6 +36,8 @@ Route::get('/training', function () {
 Route::get('/veterinarycare', function () {
     return view('pages.services.veterinarycare');
 });
+=======
+>>>>>>> 51d447517cf1e5ddb9a3a3caef440ecbe54e3afe
 
 Route::get('/dashboard', function () {
     return view('dashboard');
