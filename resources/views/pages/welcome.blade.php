@@ -3,62 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Fav Pet</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-
-            <h1 class="text-white">FavPet</h1>
-            
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-        </div>
-    </body>
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Fav Pet</title>
         <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/product.css') }}" rel="stylesheet">
     </head>
     <body class="antialiased font-concert_one">
-        <nav class="bg-teal-950 h-20 shadow-lg flex items-center justify-around">
-            <div class="flex items-center justify-between gap-2">
+        <nav class="bg-teal-950 h-20 shadow-lg flex items-center justify-between">
+            <div class="flex items-center gap-2 px-10">
                 <svg fill="#f97316" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     viewBox="0 0 228.804 228.804" xml:space="preserve">
                 <g>
@@ -92,30 +45,972 @@
                 </svg>
                 <p class="text-white text-3xl ">Fav<span class="text-orange-500">Pet</span></p>
             </div>
-            <div>
+            <div class="hidden md:flex">
                 <a href="#" class="text-white text-md px-3 hover:underline hover:text-orange-500">Home</a>
                 <a href="#" class="text-white text-md px-3 hover:underline hover:text-orange-500">Pets</a>
                 <a href="#" class="text-white text-md px-3 hover:underline hover:text-orange-500">Products</a>
                 <a href="#" class="text-white text-md px-3 hover:underline hover:text-orange-500">Services</a>
+                <a href="#" class="text-white text-md px-3 hover:underline hover:text-orange-500">About</a>
                 <a href="#" class="text-white text-md px-3 hover:underline hover:text-orange-500">Contact</a>
             </div>
-            <div>
-
-            @if (Route::has('login'))
-                {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> --}}
-                <div class="hidden  px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-md text-white hover:text-orange-500 hover:underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-md text-white hover:text-orange-500 hover:underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-md text-white hover:text-orange-500 hover:underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            <div class="flex items-center">
+                @if (Route::has('login'))
+                    <div class="hidden md:flex items-center px-10">
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="text-md text-white border-2 border-orange-500 px-4 py-1 hover:text-orange-500 rounded-lg">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="text-md border-2 border-orange-500 px-4 py-1 text-white hover:text-orange-500 rounded-lg">Login</a>
+        
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-1 border-2 border-orange-500 px-4 py-1 text-md text-white hover:text-orange-500 rounded-lg">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+                <button id="mobile-menu-toggle" class="md:hidden text-white text-md px-3 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30">
+                        <path fill="currentColor" d="M2 6h20v2H2zm0 5h20v2H2zm0 5h20v2H2z"/>
+                    </svg>
+                </button>
             </div>
         </nav>
+        
+        <div id="mobile-menu" class="md:hidden hidden text-center bg-teal-950 text-white py-2 px-4">
+            <a href="#" class="block text-lg py-1 hover:underline hover:text-orange-500">Home</a>
+            <a href="#" class="block text-lg py-1 hover:underline hover:text-orange-500">Pets</a>
+            <a href="#" class="block text-lg py-1 hover:underline hover:text-orange-500">Products</a>
+            <a href="#" class="block text-lg py-1 hover:underline hover:text-orange-500">Services</a>
+            <a href="#" class="block text-lg py-1 hover:underline hover:text-orange-500">About</a>
+            <a href="#" class="block text-lg py-1 hover:underline hover:text-orange-500">Contact</a>
+            @if (Route::has('login'))
+                    <div class="flex flex-col text-lg">
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="text-lg py-1 text-white hover:text-orange-500 hover:underline">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="text-lg py-1 text-white hover:text-orange-500 hover:underline">Login</a>
+        
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class=" py-1 text-lg text-white hover:text-orange-500 hover:underline">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+        </div>
+        {{-- HERO SECTION --}}
+        <div class="relative h-screen bg-zinc-800 flex justify-center items-center">
+            <video autoplay muted loop class="absolute inset-0 object-cover w-full h-full">
+                <source src="{{ asset('media/bg.mp4') }}" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="flex flex-col items-center justify-center z-10 max-w-lg p-8 rounded-lg text-center">
+                <h1 class="text-white text-5xl mb-4 font-bold">For the love of pets, choose Fav<span class="text-orange-500">Pet.</span></h1>
+                <p class="text-white text-lg mb-6">Your pet's happiness is our mission.</p>
+                <a href="#" class="border-2 border-orange-500 px-6 py-2 text-lg text-white hover:text-orange-500 rounded-lg">Explor more</a>
+            </div>
+        </div>
+        {{-- pet types section --}}
+        <div class="h-full px-16 my-20 max-w-screen-xl mx-auto">
+            <h1 class="text-center font-bold text-4xl">Choose by pet</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-evenly mt-20">
+                <div class="border-2 border-orange-400 rounded-lg hover:shadow-lg px-6 py-2 flex flex-col items-center">
+                    <svg height="60px" width="60px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        viewBox="0 0 512 512"  xml:space="preserve">
+                    <style type="text/css">
+                        .st0{fill:#000000;}
+                    </style>
+                    <g>
+                        <path class="st0" d="M439.464,51.073c-6.026-13.266-13.941-25.629-24.903-35.19c-10.87-9.57-25.367-15.967-41.621-15.882
+                            c-8.295-0.008-16.126,1.739-23.054,4.751c-12.177,5.3-21.367,14.101-28.414,23.535c-10.548,14.212-16.793,30.254-20.759,42.912
+                            c-1.055,3.409-1.933,6.548-2.667,9.375h-29.055h-25.984h-29.063c-2.127-8.312-5.612-19.578-11.063-31.308
+                            c-5.291-11.232-12.354-22.954-22.658-32.532c-5.148-4.768-11.164-8.978-18.11-11.983c-6.929-3.012-14.768-4.76-23.055-4.751
+                            c-16.16-0.085-30.615,6.135-41.519,15.544C81.093,29.739,71.313,49.95,64.908,70.853c-6.321,20.987-9.013,42.945-9.03,61.696
+                            c0,28.591,0,140.346,0,181.932c0.008,15.916,2.482,35.696,8.616,56.894c9.215,31.713,26.785,66.751,57.671,94.21
+                            c30.81,27.494,75.021,46.515,133.831,46.414c39.215,0.016,71.933-8.312,98.523-22.144c39.966-20.742,65.544-53.434,80.802-86.068
+                            c15.3-32.768,20.759-65.485,20.801-89.307c0-41.586,0-153.341,0-181.932C456.046,108.355,451.397,77.688,439.464,51.073z
+                            M424.933,314.481c0.008,12.666-2.068,29.924-7.384,48.202c-7.966,27.493-23.106,57.148-48.414,79.569
+                            c-25.375,22.397-60.844,38.456-113.139,38.557c-34.86-0.016-62.236-7.274-84.135-18.625c-32.768-17.029-53.789-43.67-66.945-71.636
+                            c-8.506-18.059-13.468-36.625-15.907-52.675c12.565,0,34.473,0,64.574,0c49.443,0,82.405-47.586,82.405-86.042
+                            c0-29.578,0-106.228,0-140.076h7.021h25.984h54.869l2.109-13.097c0.025-0.414,3.392-19.536,11.797-37.012
+                            c4.144-8.735,9.528-16.92,15.469-22.27c2.979-2.7,6.033-4.725,9.198-6.076c3.198-1.35,6.523-2.102,10.506-2.11
+                            c8.439,0.084,14.734,2.768,21.173,8.245c9.553,8.118,17.908,23.586,23.114,41.198c5.308,17.518,7.73,36.928,7.706,51.915
+                            C424.933,161.14,424.933,272.895,424.933,314.481z"/>
+                        <path class="st0" d="M253.397,350.86c-22.963,0-41.579,13.975-41.579,31.19c0,17.224,18.616,31.19,41.579,31.19
+                            c22.97,0,41.586-13.966,41.586-31.19C294.984,364.835,276.368,350.86,253.397,350.86z"/>
+                        <circle class="st0" cx="333.971" cy="249.502" r="25.992"/>
+                        <path class="st0" d="M372.08,71.039c-17.316,0-20.793,36.388-20.793,36.388h38.126C389.413,107.426,389.396,71.039,372.08,71.039z"
+                            />
+                    </g>
+                    </svg>
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Dogs</h4>
+                    </div>
+                </div>
+                <div class="border-2 border-orange-400 rounded-lg hover:shadow-lg  px-6 py-2 flex flex-col items-center">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        width="60px" height="60px" viewBox="0 0 512 512"  xml:space="preserve">
+                    <style type="text/css">
+                    <![CDATA[
+                        .st0{fill:#000000;}
+                    ]]>
+                    </style>
+                    <g>
+                        <path class="st0" d="M481.875,299.344L512,292.219l-4.656-19.641l-24.25,5.734c0-0.328,0.016-0.641,0.016-0.969
+                            c0-38.078-10.531-72.781-28.969-102.359c15.438-53.938-13.438-124.547-13.438-124.547S387.813,73,357.719,100.297
+                            C327.109,91.063,292.578,88.094,256,88.094c-36.766,0-71.484,2.563-102.203,11.781c-30.156-27.109-82.5-49.438-82.5-49.438
+                            S42.406,121.063,57.859,175c-18.422,29.578-28.984,64.281-28.984,102.344c0,0.328,0.031,0.641,0.031,0.969l-24.25-5.734L0,292.219
+                            l30.109,7.125c2.672,23.578,9.672,44.75,20.234,63.422L12.875,377.75l7.484,18.75l41.203-16.484
+                            c39.797,53.141,111.969,81.547,194.438,81.547c82.453,0,154.641-28.406,194.438-81.547l41.203,16.484l7.484-18.75l-37.469-14.984
+                            C472.219,344.094,479.219,322.922,481.875,299.344z"/>
+                    </g>
+                    </svg>
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Cats</h4>
+                    </div>
+                </div>
+                <div class="border-2 border-orange-400 rounded-lg hover:shadow-lg  px-6 py-2 flex flex-col items-center">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        width="60px" height="60px" viewBox="0 0 512 512"  xml:space="preserve">
+                    <style type="text/css">
+                    <![CDATA[
+                        .st0{fill:#000000;}
+                    ]]>
+                    </style>
+                    <g>
+                        <path class="st0" d="M473.472,266.477l38.172-98.609c0.844-2.203,0.141-4.688-1.719-6.109c-1.875-1.438-4.453-1.453-6.344-0.063
+                            l-99.094,73.094c-21.328-2.516-44.391-53.469-145.922-78.75l29.672-4.234c4.734-0.672,8.891-3.438,11.359-7.547
+                            c2.453-4.094,2.922-9.078,1.297-13.563l-14.922-41.031c-1.828-5.016-6.047-8.781-11.234-10.016s-10.641,0.219-14.531,3.875
+                            l-67.922,63.938C82.394,149.867,0.003,238.32,0.003,266.477c3.734,23.609,48.891,77.875,117.25,104.25
+                            c7.141-9.969,12.906-19.594,17.516-28.766c13.453-26.828,17.234-49.875,17.234-65.734c0-6.391-0.625-11.609-1.422-15.266
+                            c-1.281-6.047,2.563-11.984,8.609-13.266c6.047-1.297,11.984,2.563,13.281,8.594c1.156,5.453,1.891,12.109,1.891,19.938
+                            c0,19.344-4.578,45.813-19.609,75.766c-4.219,8.422-9.313,17.125-15.328,26.016c23.5,6.406,49.203,9.297,76.484,6.703l20.25,39.453
+                            c2.047,4,5.688,6.938,10.031,8.094c4.344,1.141,8.969,0.406,12.75-2.063l15.453-10.109c4.266-2.781,6.906-7.422,7.172-12.484
+                            c0.234-5.063-1.938-9.953-5.891-13.141l-20.703-16.672c104.594-24.938,127.953-77.078,149.516-79.625l99.094,73.094
+                            c1.891,1.391,4.469,1.375,6.344-0.047c1.859-1.422,2.563-3.922,1.719-6.109L473.472,266.477z M76.425,273.945
+                            c-9.266,0-16.781-7.531-16.781-16.781c0-9.266,7.516-16.781,16.781-16.781s16.781,7.516,16.781,16.781
+                            C93.206,266.414,85.69,273.945,76.425,273.945z"/>
+                    </g>
+                    </svg>
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Fish</h4>
+                    </div>
+                </div>
+                <div class="border-2 border-orange-400 rounded-lg hover:shadow-lg  px-6 py-2 flex flex-col items-center">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        width="60px" height="60px" viewBox="0 0 512 512"  xml:space="preserve">
+                    <style type="text/css">
+                    <![CDATA[
+                        .st0{fill:#000000;}
+                    ]]>
+                    </style>
+                    <g>
+                        <path class="st0" d="M428.159,377.156c-35.266-4.094-69.5-15.797-99.781-32.109c-37.859-20.453-69.672-47.859-89.734-77.297
+                            c-13.297-19.641-21.563-40.391-21.609-61.156c0-3.766,0.281-7.531,0.875-11.25l24.781,3.922c-0.359,2.375-0.547,4.813-0.547,7.328
+                            c-0.063,13.797,5.828,30.266,17.266,47.063c11.391,16.766,28.078,33.703,48.266,48.625c40.359,29.922,94.547,51.563,147.063,51.484
+                            c6.266,0,42.688-5.219,48.891-5.844c19.422-14.875-1.047-24.328-1.047-24.328L267.19,110.469l31.813-54.063
+                            c0,0-63.609,0-133.594,6.359C95.44,69.125,63.628,123.203,63.628,123.203L0.003,132.75c0,0,54.078,38.156,79.516,47.719
+                            c21.344,151.5,118.563,197.063,183.109,204.891l28.391,41.625h-52.453v28.609h93.813c2.516,0,4.813-1.375,5.984-3.594
+                            s1.016-4.906-0.391-6.969l-40.281-59.078c11.781-1.25,19.953-4.031,22.813-7.203c29.172,26.125,54.828,49.813,54.828,49.813
+                            l120.891-6.359c0,0-29.891-19.391-68.781-44.766C427.69,377.344,427.909,377.234,428.159,377.156z"/>
+                    </g>
+                    </svg>
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Birds</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- Products section --}}
+        <div class="h-full px-16 my-20 max-w-screen-xl mx-auto">
+            <h1 class="text-center font-bold text-4xl">Our products </h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-6 my-8">
+               <div class="flex flex-col items-center border-2 border-orange-500 rounded-lg">
+                        <h2 class="text-3xl my-2 text-orange-500">TOY</h2>
+                            <svg width="90px" height="90px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                viewBox="0 0 512 512" xml:space="preserve">
+                            <path style="fill:#00A651;" d="M256.022,8.038c86.979,0,163.493,44.896,207.601,112.747
+                                c-8.777,3.489-117.584,48.159-117.584,129.174c0,0,0,84.391-90.016,84.391s-90.016-84.391-90.016-84.391
+                                c0-81.015-108.808-125.686-117.584-129.174C92.529,52.933,169.043,8.038,256.022,8.038z"/>
+                            <path style="fill:#36C63F;" d="M463.624,120.784c25.317,38.82,39.945,85.066,39.945,134.8
+                                c0,136.713-110.834,247.546-247.546,247.546S8.476,392.297,8.476,255.583c0-49.734,14.628-95.98,39.945-134.8
+                                c8.777,3.489,117.584,48.159,117.584,129.174c0,0,0,84.391,90.016,84.391s90.016-84.391,90.016-84.391
+                                C346.04,168.943,454.847,124.272,463.624,120.784z"/>
+                            <path style="fill:#009D53;" d="M166.006,249.958c0,0,0,84.391,90.016,84.391c25.631,0,43.777-6.949,56.891-16.737
+                                c-85.991-69.828-144.314-172.365-155.991-288.798c-44.53,19.5-82.274,51.625-108.502,91.97
+                                C57.198,124.272,166.006,168.943,166.006,249.958z"/>
+                            <path style="fill:#33B44A;" d="M312.914,317.612c-13.113,9.788-31.259,16.737-56.891,16.737c-90.016,0-90.016-84.391-90.016-84.391
+                                c0-81.015-108.807-125.686-117.584-129.175c-25.318,38.82-39.946,85.066-39.946,134.8c0,136.713,110.833,247.546,247.546,247.546
+                                c84.834,0,159.675-42.698,204.28-107.752C405.822,379.206,355.908,352.524,312.914,317.612z"/>
+                            <path d="M486.96,366.554C503.575,331.905,512,294.709,512,256.001c0-49.761-14.288-97.973-41.311-139.408
+                                C423.229,43.586,342.971,0,256.001,0C169.029,0,88.771,43.586,41.318,116.582C14.288,158.028,0,206.238,0,256.001
+                                c0,68.379,26.629,132.666,74.981,181.018S187.622,512,256.001,512c44.551,0,88.427-11.622,126.883-33.609
+                                c37.291-21.32,68.894-51.946,91.393-88.566l-14.406-8.85c-21.018,34.211-50.541,62.821-85.378,82.738
+                                c-35.904,20.529-76.878,31.38-118.492,31.38c-131.837,0-239.093-107.257-239.093-239.092c0-46.474,13.339-91.491,38.58-130.193
+                                C99.815,57.619,174.774,16.907,256.001,16.907c77.859,0,149.94,37.424,194.831,100.589C420.641,131.288,337.564,176,337.564,250.352
+                                c-0.016,3.102-1.296,75.959-81.563,75.959s-81.548-72.857-81.563-75.937c0-50.573-38.738-87.357-71.236-109.311l-9.464,14.01
+                                c52.722,35.618,63.791,71.484,63.791,95.301c0,0.948,0.139,23.472,12.246,46.174c11.355,21.292,35.531,46.671,86.224,46.671
+                                s74.869-25.38,86.224-46.671c12.108-22.702,12.246-45.226,12.246-46.174c0-31.104,17.561-60.359,52.196-86.955
+                                c21.08-16.187,42.661-26.777,53.609-31.635c22.794,37.32,34.817,80.109,34.817,124.215c0,36.158-7.865,70.893-23.377,103.242
+                                L486.96,366.554z"/>
+                            <g>
+                                <rect x="188.482" y="84.391" style="fill:#FFFFFF;" width="33.756" height="16.907"/>
+                                <rect x="222.24" y="118.148" style="fill:#FFFFFF;" width="33.757" height="16.907"/>
+                            </g>
+                            <rect x="323.515" y="78.764" width="33.756" height="16.907"/>
+                            <rect x="98.468" y="348.819" width="33.756" height="16.907"/>
+                            <rect x="132.226" y="382.577" width="33.757" height="16.907"/>
+                            <path style="fill:#FFFFFF;" d="M346.017,405.778c-16.078,7-33.113,10.549-50.635,10.549v16.907c19.858,0,39.165-4.022,57.39-11.958
+                                c52.296-22.817,86.088-74.443,86.088-131.521h-16.907C421.953,340.111,392.144,385.653,346.017,405.778z"/>
+                            </svg>
+                        <h4 class="my-2">make your pet happier</h4>
+                        <div class="image-title my-2 text-orange-400 hover:text-orange-700 hover:underline"><button>View more...</button></div>
+                </div>
+            
+                <div class="image-container flex flex-col items-center border-2 border-orange-500 rounded-lg">
+                    <h2 class="text-3xl my-2 text-orange-500">FOOD</h2>
+                    <svg height="90px" width="90px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        viewBox="0 0 512 512" xml:space="preserve">
+                    <path style="fill:#37CC8F;" d="M502.472,331.279c-7.553-43.645-37.966-103.665-49.634-125.585
+                        c-6.966,8.766-17.889,17.527-34.013,25.464c-0.009,0.004-0.017,0.009-0.026,0.013c-3.159,1.665-6.544,3.277-10.14,4.833
+                        c-0.052,0.022-0.106,0.046-0.158,0.068c-3.587,1.548-7.383,3.041-11.376,4.472c-0.067,0.025-0.136,0.048-0.203,0.073
+                        c-1.286,0.46-2.591,0.913-3.917,1.36c-0.043,0.014-0.084,0.029-0.127,0.043c-2.762,0.929-5.607,1.831-8.535,2.702
+                        c-0.045,0.014-0.091,0.027-0.136,0.04c-1.371,0.407-2.761,0.807-4.167,1.202c-0.148,0.042-0.294,0.082-0.443,0.124
+                        c-4.405,1.229-8.978,2.392-13.708,3.487c-0.223,0.052-0.449,0.104-0.674,0.155c-1.404,0.322-2.821,0.638-4.251,0.948
+                        c-0.168,0.036-0.335,0.074-0.503,0.11c-3.205,0.69-6.474,1.347-9.806,1.975c-0.261,0.049-0.525,0.097-0.787,0.145
+                        c-1.392,0.259-2.795,0.512-4.209,0.76c-0.322,0.057-0.642,0.113-0.964,0.169c-1.622,0.28-3.255,0.555-4.905,0.82
+                        c-0.028,0.004-0.055,0.009-0.081,0.014c-1.736,0.279-3.488,0.549-5.252,0.81c-0.257,0.038-0.516,0.075-0.774,0.112
+                        c-1.445,0.212-2.899,0.418-4.361,0.619c-0.429,0.059-0.859,0.117-1.29,0.174c-1.417,0.19-2.841,0.374-4.274,0.554
+                        c-0.334,0.042-0.665,0.084-1,0.126c-1.787,0.219-3.584,0.432-5.394,0.634c-0.109,0.012-0.22,0.024-0.329,0.035
+                        c-1.647,0.183-3.305,0.357-4.972,0.526c-0.483,0.049-0.969,0.096-1.453,0.143c-1.357,0.134-2.72,0.262-4.09,0.385
+                        c-0.495,0.045-0.988,0.09-1.485,0.134c-1.711,0.15-3.429,0.292-5.159,0.427c-0.098,0.008-0.196,0.016-0.294,0.024
+                        c-1.841,0.141-3.695,0.273-5.556,0.397c-0.489,0.032-0.982,0.062-1.471,0.093c-1.38,0.089-2.766,0.172-4.157,0.25
+                        c-0.583,0.033-1.165,0.065-1.75,0.096c-1.446,0.077-2.897,0.148-4.352,0.214c-0.443,0.02-0.882,0.043-1.326,0.062
+                        c-1.882,0.081-3.771,0.153-5.67,0.216c-0.389,0.013-0.781,0.022-1.17,0.034c-1.518,0.047-3.042,0.089-4.57,0.124
+                        c-0.613,0.014-1.226,0.027-1.841,0.038c-1.389,0.028-2.781,0.05-4.178,0.068c-0.573,0.008-1.144,0.016-1.718,0.021
+                        c-1.934,0.019-3.874,0.032-5.823,0.032c-1.948,0-3.888-0.013-5.823-0.032c-0.574-0.005-1.145-0.014-1.717-0.021
+                        c-1.398-0.018-2.791-0.041-4.18-0.068c-0.614-0.012-1.226-0.025-1.838-0.038c-1.531-0.035-3.057-0.077-4.579-0.124
+                        c-0.386-0.012-0.775-0.021-1.161-0.034c-1.9-0.063-3.792-0.136-5.676-0.216c-0.441-0.019-0.878-0.042-1.318-0.061
+                        c-1.456-0.066-2.908-0.137-4.354-0.214c-0.586-0.031-1.17-0.063-1.754-0.096c-1.391-0.078-2.777-0.163-4.158-0.25
+                        c-0.489-0.031-0.979-0.061-1.467-0.093c-1.862-0.124-3.715-0.254-5.556-0.397c-0.102-0.007-0.202-0.017-0.304-0.025
+                        c-1.727-0.134-3.444-0.277-5.153-0.426c-0.494-0.043-0.986-0.089-1.479-0.133c-1.373-0.124-2.739-0.252-4.099-0.386
+                        c-0.483-0.047-0.967-0.094-1.448-0.143c-1.661-0.168-3.313-0.341-4.954-0.524c-0.117-0.013-0.235-0.025-0.352-0.037
+                        c-1.81-0.202-3.607-0.414-5.392-0.634c-0.333-0.041-0.662-0.083-0.993-0.125c-1.436-0.18-2.865-0.365-4.283-0.555
+                        c-0.428-0.058-0.854-0.115-1.281-0.173c-1.464-0.201-2.918-0.406-4.363-0.619c-0.259-0.038-0.52-0.075-0.778-0.113
+                        c-1.763-0.262-3.515-0.531-5.249-0.81c-0.03-0.004-0.059-0.01-0.089-0.015c-1.649-0.265-3.28-0.54-4.901-0.82
+                        c-0.321-0.056-0.639-0.112-0.959-0.168c-1.414-0.248-2.817-0.501-4.21-0.76c-0.263-0.049-0.528-0.097-0.79-0.146
+                        c-3.333-0.627-6.603-1.285-9.807-1.975c-0.165-0.035-0.328-0.072-0.492-0.107c-1.433-0.31-2.852-0.628-4.258-0.949
+                        c-0.226-0.052-0.452-0.104-0.677-0.156c-4.729-1.095-9.302-2.259-13.708-3.487c-0.146-0.041-0.292-0.082-0.438-0.123
+                        c-1.406-0.395-2.796-0.794-4.166-1.202c-0.046-0.014-0.093-0.028-0.14-0.041c-2.929-0.871-5.774-1.773-8.537-2.702
+                        c-0.041-0.014-0.08-0.028-0.12-0.041c-1.328-0.448-2.636-0.902-3.924-1.362c-0.066-0.024-0.133-0.047-0.198-0.071
+                        c-3.994-1.432-7.791-2.924-11.379-4.474c-0.052-0.022-0.104-0.045-0.156-0.067c-3.597-1.557-6.982-3.169-10.143-4.835
+                        c-0.007-0.004-0.016-0.009-0.025-0.013c-16.124-7.937-27.048-16.699-34.014-25.465C47.46,227.675,16.898,287.993,9.46,331.673
+                        c-0.92,3.649-1.403,7.353-1.403,11.105c-0.068,0.91-0.035,1.795,0.08,2.66c3.357,56.33,113.053,101.559,247.883,101.559
+                        c135.212,0,245.135-45.488,247.897-102.04c0.047-0.504,0.06-1.016,0.046-1.533c0.003-0.216,0.019-0.43,0.019-0.646
+                        C503.981,338.89,503.458,335.055,502.472,331.279z"/>
+                    <path style="fill:#2AA86F;" d="M502.472,331.279c-7.553-43.645-37.966-103.665-49.634-125.585
+                        c-4.046,5.091-9.437,10.178-16.395,15.105c13.994,27.758,35.611,74.633,41.815,110.481c0.986,3.777,1.509,7.612,1.509,11.499
+                        c0,0.216-0.016,0.431-0.019,0.646c0.014,0.519,0.001,1.031-0.046,1.533c-2.68,54.854-106.186,99.297-235.796,101.915
+                        c4.014,0.081,8.051,0.124,12.113,0.124c135.212,0,245.135-45.488,247.897-102.04c0.047-0.504,0.06-1.016,0.046-1.533
+                        c0.003-0.216,0.019-0.43,0.019-0.646C503.981,338.89,503.458,335.055,502.472,331.279z"/>
+                    <g>
+                        <path style="fill:#FE9901;" d="M437.643,148.308c-5.391,0-10.55,0.986-15.315,2.777c-3.916-20.037-21.56-35.159-42.743-35.159
+                            c-5.272,0-10.327,0.938-15.005,2.654c-2.808-21.346-21.06-37.828-43.173-37.828c-9.845,0-18.925,3.27-26.219,8.776
+                            c-7.066-14.518-21.957-24.526-39.189-24.526s-32.123,10.008-39.189,24.526c-7.295-5.508-16.374-8.776-26.219-8.776
+                            c-22.113,0-40.364,16.481-43.173,37.828c-4.678-1.716-9.731-2.654-15.005-2.654c-21.183,0-38.826,15.122-42.743,35.159
+                            c-4.766-1.79-9.925-2.777-15.315-2.777c-24.058,0-50.048,48.949,18.818,82.849c34.025,17.941,94.224,29.865,162.824,29.865
+                            s128.799-11.924,162.824-29.865C487.691,197.257,461.701,148.308,437.643,148.308z"/>
+                        <path style="fill:#FE9901;" d="M64.747,150.835c0.236,0.084,0.477,0.161,0.712,0.25c0.045-0.231,0.102-0.458,0.15-0.686
+                            C65.32,150.537,65.034,150.684,64.747,150.835z"/>
+                    </g>
+                    <g>
+                        <path style="fill:#ED8803;" d="M340.367,118.579c4.678-1.716,9.731-2.654,15.004-2.654c3.067,0,6.055,0.326,8.942,0.929
+                            c-3.539-20.502-21.392-36.103-42.906-36.103c-4.201,0-8.26,0.6-12.103,1.71C325.686,87.198,338.093,101.292,340.367,118.579z"/>
+                        <path style="fill:#ED8803;" d="M398.114,151.085c4.766-1.79,9.924-2.777,15.315-2.777c2.947,0,5.921,0.739,8.749,2.089
+                            c-4.182-19.692-21.653-34.472-42.592-34.472c-4.202,0-8.262,0.604-12.106,1.715C383.012,122.129,394.974,135.024,398.114,151.085z"
+                            />
+                        <path style="fill:#ED8803;" d="M437.643,148.308c-5.125,0-10.036,0.9-14.604,2.527c19.734,10.424,31.139,51-28.429,80.323
+                            c-32.007,16.877-87.179,28.427-150.716,29.738c4.004,0.082,8.04,0.127,12.107,0.127c68.601,0,128.799-11.924,162.824-29.865
+                            C487.691,197.257,461.701,148.308,437.643,148.308z"/>
+                    </g>
+                    <g>
+                        <path style="fill:#FFFFFF;" d="M256.144,357.288c-0.048,0-0.237,0-0.285,0c-21.731,0-43.366,45.518-29.385,52.044
+                            c6.105,2.85,12.482,2.473,17.728,1.144c3.862-0.978,7.831-1.461,11.799-1.449c3.968-0.012,7.937,0.47,11.799,1.449
+                            c5.247,1.329,11.623,1.705,17.728-1.144C299.509,402.806,277.874,357.288,256.144,357.288z"/>
+                        <path style="fill:#FFFFFF;" d="M210.591,325.424c4.275,9.496,17.937,17.887,27.433,13.613c9.496-4.275,11.23-19.598,6.955-29.094
+                            c-4.275-9.496-15.438-13.728-24.934-9.453C210.548,304.766,206.316,315.928,210.591,325.424z"/>
+                        <path style="fill:#FFFFFF;" d="M184.537,371.541c7.429,4.932,22.831,6.424,27.763-1.005c4.932-7.429-2.472-20.966-9.901-25.898
+                            s-17.45-2.908-22.382,4.521S177.107,366.608,184.537,371.541z"/>
+                        <path style="fill:#FFFFFF;" d="M301.41,325.424c-4.275,9.496-17.937,17.887-27.433,13.613c-9.496-4.275-11.23-19.598-6.955-29.094
+                            c4.275-9.496,15.438-13.728,24.934-9.453C301.453,304.766,305.685,315.928,301.41,325.424z"/>
+                        <path style="fill:#FFFFFF;" d="M327.465,371.541c-7.429,4.932-22.83,6.424-27.763-1.005s2.471-20.966,9.901-25.898
+                            c7.429-4.932,17.45-2.908,22.382,4.521S334.894,366.608,327.465,371.541z"/>
+                    </g>
+                    <path d="M235.873,150.479c0-18.606-15.137-33.743-33.743-33.743s-33.743,15.137-33.743,33.743c0,4.429,3.591,8.019,8.019,8.019
+                        s8.019-3.591,8.019-8.019c0-9.762,7.942-17.705,17.705-17.705c9.762,0,17.705,7.942,17.705,17.705c0,4.429,3.591,8.019,8.019,8.019
+                        C232.283,158.498,235.873,154.908,235.873,150.479z"/>
+                    <path d="M292.167,150.479c0-9.762,7.942-17.705,17.706-17.705c9.762,0,17.705,7.942,17.705,17.705c0,4.429,3.589,8.019,8.019,8.019
+                        c4.43,0,8.019-3.591,8.019-8.019c0-18.606-15.136-33.743-33.743-33.743s-33.744,15.137-33.744,33.743
+                        c0,4.429,3.589,8.019,8.019,8.019C288.577,158.498,292.167,154.908,292.167,150.479z"/>
+                    <path d="M230.277,213.621c4.429,0,8.019-3.591,8.019-8.019c0-9.762,7.942-17.705,17.705-17.705c9.763,0,17.706,7.942,17.706,17.705
+                        c0,4.429,3.589,8.019,8.019,8.019c4.43,0,8.019-3.591,8.019-8.019c0-18.606-15.137-33.743-33.744-33.743
+                        c-18.607,0-33.743,15.137-33.743,33.743C222.257,210.031,225.848,213.621,230.277,213.621z"/>
+                    <path d="M133.975,171.859c-18.606,0-33.743,15.137-33.743,33.743c0,4.429,3.591,8.019,8.019,8.019c4.429,0,8.019-3.591,8.019-8.019
+                        c0-9.762,7.942-17.705,17.705-17.705s17.705,7.942,17.705,17.705c0,4.429,3.591,8.019,8.019,8.019s8.019-3.591,8.019-8.019
+                        C167.718,186.996,152.581,171.859,133.975,171.859z"/>
+                    <path d="M360.321,205.602c0-9.762,7.942-17.705,17.705-17.705s17.705,7.942,17.705,17.705c0,4.429,3.589,8.019,8.019,8.019
+                        c4.43,0,8.019-3.591,8.019-8.019c0-18.606-15.136-33.743-33.743-33.743s-33.743,15.137-33.743,33.743
+                        c0,4.429,3.589,8.019,8.019,8.019C356.732,213.621,360.321,210.031,360.321,205.602z"/>
+                    <path d="M255.858,349.269c-20.186,0-36.996,25.441-40.898,43.026c-3.722,16.775,4.438,22.585,8.121,24.303
+                        c6.831,3.188,14.784,3.755,23.089,1.652c3.153-0.799,6.412-1.203,9.686-1.203h0.29c3.274,0,6.533,0.404,9.685,1.203
+                        c3.285,0.832,6.535,1.253,9.662,1.253c0.001,0,0.001,0,0.001,0c4.78,0,9.297-0.977,13.427-2.905
+                        c3.681-1.718,11.844-7.526,8.122-24.303c-3.902-17.586-20.711-43.027-40.897-43.027h-0.288V349.269z M275.802,382.194
+                        c5.965,10.211,6.637,18.002,5.929,20.053c-1.903,0.82-3.949,1.219-6.238,1.219c-1.801,0-3.726-0.257-5.725-0.762
+                        c-4.439-1.124-9.022-1.694-13.623-1.694h-0.29c-4.601,0-9.184,0.57-13.623,1.694c-4.502,1.141-8.57,1-11.964-0.457
+                        c-0.708-2.051-0.035-9.842,5.93-20.053c5.901-10.1,13.801-16.885,19.658-16.885h0.286C262,365.307,269.901,372.094,275.802,382.194z
+                        "/>
+                    <path d="M227.774,290.804c-3.815,0-7.523,0.799-11.022,2.374c-13.512,6.083-19.556,22.026-13.474,35.538
+                        c4.919,10.926,17.726,19.485,29.156,19.486h0.001c3.162,0,6.149-0.623,8.879-1.852c6.808-3.064,11.503-9.586,13.22-18.362
+                        c1.396-7.137,0.557-15.114-2.244-21.337C247.957,297.025,238.333,290.804,227.774,290.804z M234.731,331.725
+                        c-0.646,0.291-1.419,0.438-2.295,0.438l0,0c-5.148,0-12.211-4.875-14.532-10.031c-2.453-5.449-0.016-11.877,5.433-14.33
+                        c1.415-0.637,2.908-0.959,4.437-0.959c4.261,0,8.143,2.509,9.892,6.392C240.609,319.772,239.018,329.795,234.731,331.725z"/>
+                    <path d="M173.335,344.722c-3.57,5.377-4.833,11.824-3.555,18.151c1.278,6.327,4.944,11.779,10.321,15.349
+                        c5.161,3.427,12.477,5.472,19.569,5.472h0.001c8.715,0,15.572-3.098,19.308-8.724c8.019-12.079-2.001-30.278-12.147-37.015
+                        c-3.975-2.639-8.592-4.034-13.351-4.034C185.357,333.922,177.825,337.959,173.335,344.722z M205.619,366.101
+                        c-0.4,0.602-2.367,1.557-5.947,1.557l0,0c-3.82,0-8.22-1.149-10.699-2.796c-1.808-1.201-3.042-3.035-3.472-5.162
+                        s-0.005-4.296,1.195-6.104c1.511-2.275,4.047-3.633,6.786-3.633c1.593,0,3.141,0.469,4.48,1.358
+                        C203.294,354.859,207.058,363.932,205.619,366.101z"/>
+                    <path d="M295.249,293.178c-3.499-1.575-7.207-2.374-11.023-2.374c-10.559,0-20.183,6.22-24.517,15.847
+                        c-2.801,6.223-3.641,14.198-2.244,21.337c1.716,8.776,6.411,15.298,13.219,18.362c2.731,1.229,5.718,1.852,8.88,1.852
+                        c11.43,0,24.238-8.558,29.157-19.486C314.806,315.203,308.762,299.261,295.249,293.178z M294.098,322.133
+                        c-2.321,5.156-9.383,10.031-14.532,10.031c-0.877,0-1.65-0.148-2.295-0.438c-2.702-1.217-3.742-5.172-4.064-6.816
+                        c-0.771-3.941-0.338-8.414,1.129-11.673c1.748-3.882,5.632-6.392,9.892-6.392c1.531,0,3.023,0.323,4.437,0.959
+                        c2.64,1.188,4.658,3.333,5.684,6.039C295.374,316.549,295.286,319.493,294.098,322.133z"/>
+                    <path d="M305.167,337.957c-5.04,3.347-9.711,9.13-12.494,15.472c-3.582,8.16-3.458,15.812,0.348,21.544
+                        c3.735,5.625,10.592,8.723,19.309,8.723c7.092,0,14.408-2.045,19.57-5.473c11.102-7.371,14.138-22.399,6.766-33.5
+                        c-4.491-6.763-12.023-10.8-20.148-10.8C313.76,333.922,309.143,335.317,305.167,337.957z M325.305,353.594
+                        c2.478,3.734,1.457,8.787-2.276,11.267c-2.48,1.647-6.88,2.796-10.699,2.796c-3.581,0-5.547-0.955-5.948-1.556
+                        c-0.408-0.616-0.505-2.851,0.977-6.227c1.762-4.017,4.624-7.191,6.678-8.554c1.338-0.889,2.887-1.359,4.48-1.359
+                        C321.256,349.96,323.794,351.318,325.305,353.594z"/>
+                    <path d="M510.318,329.588c-7.33-41.829-34.434-97.21-48.06-123.225c0.367-0.549,0.738-1.097,1.083-1.651
+                        c8.996-14.439,8.619-27.203,6.717-35.368c-3.855-16.564-17.791-29.053-32.414-29.053c-3.316,0-6.595,0.313-9.814,0.936
+                        c-7.464-19.731-26.564-33.319-48.245-33.319c-3.046,0-6.059,0.264-9.022,0.787c-6.683-21.017-26.441-35.961-49.155-35.961
+                        c-8.307,0-16.308,1.941-23.542,5.669C288.277,65.01,272.905,56.984,256,56.984s-32.278,8.025-41.866,21.418
+                        c-7.233-3.727-15.235-5.669-23.542-5.669c-22.713,0-42.473,14.944-49.154,35.961c-2.963-0.523-5.976-0.787-9.022-0.787
+                        c-21.681,0-40.781,13.588-48.245,33.319c-3.218-0.622-6.498-0.936-9.812-0.936c-14.624,0-28.56,12.491-32.415,29.053
+                        c-1.901,8.165-2.279,20.929,6.718,35.368c0.345,0.554,0.715,1.1,1.081,1.649c-7.712,14.73-20.155,39.67-30.686,66.193
+                        c-1.634,4.117,0.377,8.777,4.494,10.412c0.971,0.385,1.972,0.568,2.958,0.568c3.19,0,6.207-1.916,7.456-5.062
+                        c9.039-22.767,19.55-44.39,27.085-59.073c0.901,0.831,1.833,1.653,2.792,2.467c0.032,0.028,0.064,0.056,0.096,0.083
+                        c0.017,0.015,0.035,0.03,0.053,0.044c0.679,0.573,1.373,1.142,2.081,1.706c0.033,0.027,0.065,0.052,0.098,0.079
+                        c0.051,0.041,0.104,0.081,0.155,0.121c1.707,1.352,3.494,2.677,5.363,3.978c0.15,0.104,0.296,0.209,0.447,0.312
+                        c0.045,0.031,0.091,0.061,0.136,0.092c0.64,0.439,1.29,0.876,1.949,1.309c0.177,0.118,0.354,0.236,0.535,0.354
+                        c0.138,0.09,0.28,0.177,0.419,0.267c0.605,0.39,1.217,0.778,1.838,1.164c0.159,0.1,0.314,0.199,0.481,0.302
+                        c0.335,0.205,0.681,0.414,1.038,0.627c0.473,0.284,0.946,0.568,1.426,0.849c0.129,0.077,0.256,0.153,0.388,0.23
+                        c0.367,0.213,0.747,0.426,1.125,0.639c0.522,0.296,1.039,0.593,1.571,0.887c0.092,0.051,0.181,0.103,0.274,0.154
+                        c0.602,0.331,1.228,0.664,1.909,1.024c0.339,0.18,0.671,0.361,1.015,0.541c0.06,0.031,0.117,0.063,0.177,0.094
+                        c0.96,0.499,1.942,0.997,2.94,1.489c0.061,0.03,0.12,0.062,0.181,0.092c0.006,0.003,0.014,0.007,0.021,0.011
+                        c0.902,0.475,1.885,0.974,2.985,1.518c26.862,13.331,66.304,22.719,111.163,26.848c0.047,0.004,0.093,0.01,0.14,0.014
+                        c10.86,1.168,21.682,1.974,32.167,2.396c22.469,0.907,45.22,0.233,67.625-2.002c0.936-0.078,1.84-0.164,2.762-0.245
+                        c1.847-0.164,3.689-0.333,5.522-0.514c1.81-0.179,3.605-0.364,5.379-0.558c0.742-0.081,1.483-0.164,2.223-0.248
+                        c2.523-0.288,5.03-0.586,7.514-0.909c0.791-0.103,1.538-0.322,2.232-0.631c0.028-0.013,0.058-0.021,0.086-0.034
+                        c0.15-0.068,0.291-0.149,0.434-0.227c0.087-0.046,0.177-0.087,0.262-0.137c0.119-0.07,0.229-0.149,0.343-0.223
+                        c0.103-0.067,0.21-0.129,0.308-0.201c0.11-0.08,0.212-0.169,0.318-0.254c0.095-0.077,0.195-0.149,0.287-0.229
+                        c0.089-0.078,0.169-0.166,0.254-0.248c0.099-0.096,0.203-0.188,0.298-0.29c0.075-0.079,0.14-0.167,0.212-0.249
+                        c0.096-0.112,0.197-0.221,0.287-0.338c0.068-0.09,0.128-0.185,0.194-0.278c0.082-0.118,0.17-0.232,0.246-0.354
+                        c0.076-0.121,0.141-0.248,0.211-0.373c0.056-0.099,0.117-0.196,0.168-0.298c0.096-0.191,0.18-0.388,0.26-0.587
+                        c0.016-0.041,0.037-0.079,0.052-0.12c0.068-0.177,0.124-0.359,0.18-0.542c0.02-0.066,0.047-0.13,0.065-0.198
+                        c0.279-1.004,0.366-2.08,0.222-3.178c-0.03-0.226-0.074-0.446-0.121-0.665c-0.01-0.047-0.015-0.095-0.026-0.141
+                        c-0.014-0.061-0.036-0.119-0.051-0.179c-0.932-3.597-4.241-6.101-7.971-5.996c-0.271,0.007-0.543,0.029-0.818,0.064
+                        c-0.028,0.003-0.057,0.006-0.086,0.011c-2.374,0.308-4.767,0.592-7.168,0.867c-0.74,0.084-1.482,0.167-2.227,0.249
+                        c-1.683,0.185-3.377,0.357-5.072,0.526c-1.892,0.186-3.812,0.366-5.758,0.536c-15.782,1.389-32.066,2.107-48.656,2.107
+                        c-16.464,0-32.56-0.691-47.978-2.012c-0.843-0.087-1.682-0.16-2.526-0.251c-0.042-0.004-0.083-0.009-0.125-0.013
+                        c-42.485-3.9-79.554-12.644-104.405-24.633l-0.433-0.205c-0.38-0.185-0.752-0.371-1.126-0.557c-0.822-0.412-1.644-0.823-2.441-1.242
+                        c-0.016-0.009-0.032-0.016-0.048-0.025c-0.034-0.018-0.068-0.035-0.104-0.052c-0.033-0.017-0.065-0.034-0.097-0.05
+                        c-0.088-0.043-0.171-0.088-0.259-0.13c-0.843-0.417-1.671-0.836-2.483-1.257c-0.702-0.365-1.391-0.735-2.075-1.106
+                        c-0.151-0.08-0.302-0.16-0.45-0.242c-25.172-13.78-37.772-31.561-33.888-48.249c2.394-10.285,10.581-16.651,16.795-16.651
+                        c4.293,0,8.497,0.761,12.495,2.264c2.209,0.831,4.67,0.646,6.73-0.505c2.06-1.149,3.509-3.148,3.962-5.464
+                        c3.247-16.617,17.913-28.678,34.872-28.678c4.212,0,8.33,0.728,12.241,2.163c2.288,0.839,4.832,0.594,6.914-0.667
+                        c2.084-1.261,3.481-3.4,3.8-5.815c2.314-17.59,17.456-30.854,35.222-30.854c7.789,0,15.185,2.475,21.387,7.158
+                        c1.914,1.445,4.372,1.956,6.704,1.397c2.331-0.559,4.29-2.133,5.339-4.289C230.03,80.694,242.283,73.024,256,73.024
+                        c13.716,0,25.97,7.67,31.977,20.015c1.049,2.156,3.008,3.73,5.339,4.289c2.333,0.558,4.789,0.047,6.704-1.397
+                        c6.204-4.682,13.6-7.158,21.388-7.158c17.765,0,32.908,13.264,35.222,30.854c0.318,2.414,1.715,4.554,3.799,5.815
+                        c2.084,1.262,4.628,1.507,6.915,0.668c3.91-1.435,8.03-2.163,12.241-2.163c16.958,0,31.625,12.061,34.872,28.678
+                        c0.452,2.316,1.901,4.314,3.96,5.464c2.06,1.151,4.523,1.334,6.73,0.505c3.998-1.502,8.202-2.264,12.496-2.264
+                        c6.213,0,14.4,6.366,16.794,16.652c4.148,17.814-10.49,36.872-39.154,50.983c-0.067,0.033-0.133,0.067-0.199,0.102
+                        c-4.765,2.513-10.117,4.908-15.97,7.17c-0.28,0.109-0.556,0.219-0.838,0.326c-13.449,5.126-29.536,9.544-47.493,13.006
+                        c-4.349,0.838-7.195,5.044-6.356,9.393c0.794,4.116,4.601,6.884,8.695,6.454c0.278-0.024,0.557-0.061,0.838-0.115
+                        c19.848-3.807,37.556-8.774,52.632-14.767c3.519-1.251,6.734-2.488,9.825-3.78c9.145-3.823,18.007-9.738,23.891-13.864
+                        c0.012-0.007,0.095-0.065,0.107-0.073c0.019-0.013,0.11-0.076,0.128-0.09l0.171-0.119c0.11-0.078,0.273-0.194,0.469-0.336
+                        c1.37-0.972,2.691-1.959,3.971-2.96c0.082-0.064,0.174-0.133,0.257-0.197c1.611-1.235,3.651-2.833,5.651-4.5
+                        c13.907,27.095,37.125,76.162,43.505,113.031c0.037,0.222,0.086,0.443,0.142,0.66c0.829,3.174,1.25,6.36,1.247,9.485
+                        c-0.007,0.172-0.014,0.344-0.016,0.516c-0.002,0.109-0.001,0.218,0.002,0.326c0.005,0.222,0.001,0.417-0.015,0.578
+                        c-0.011,0.118-0.019,0.236-0.025,0.354c-1.16,23.751-26.43,47.517-69.328,65.204c-45.682,18.835-106.255,29.207-170.56,29.207
+                        c-64.111,0-124.555-10.318-170.198-29.055c-42.87-17.599-68.268-41.277-69.679-64.962c-0.012-0.197-0.031-0.392-0.057-0.588
+                        c-0.046-0.343-0.057-0.668-0.032-0.994c0.015-0.2,0.022-0.401,0.022-0.601c0-3.015,0.39-6.093,1.159-9.146
+                        c0.05-0.202,0.094-0.406,0.129-0.613c1.5-8.806,4.113-18.977,7.769-30.23c1.368-4.212-0.938-8.736-5.149-10.104
+                        c-4.214-1.369-8.736,0.937-10.104,5.15C6.023,309.7,3.24,320.527,1.603,330.025c-1.018,4.141-1.545,8.336-1.568,12.478
+                        c-0.072,1.22-0.034,2.457,0.111,3.685c1.972,30.413,30.219,58.308,79.582,78.571c47.53,19.512,110.136,30.256,176.288,30.256
+                        c66.354,0,129.097-10.803,176.673-30.418c49.509-20.412,77.636-48.496,79.226-79.089c0.055-0.655,0.076-1.339,0.066-2.038
+                        c0.011-0.231,0.018-0.462,0.018-0.694C512.001,338.41,511.435,333.974,510.318,329.588z"/>
+                    </svg>
+                    <h4 class="my-2"> for you pet's strenght </h4>
+                    <div class="image-title my-2 text-orange-400 hover:text-orange-700 hover:underline"><button>View more...</button></div>
+                </div>
+            </div>
+    
+        {{-- Services section --}}
+        <div class="h-full px-16 my-20 max-w-screen-xl mx-auto">
+            <h1 class="text-center font-bold text-4xl">We are best in</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 items-center justify-evenly mt-20">
+                <div class="border-2 border-orange-400 hover:shadow-lg rounded-lg  px-6 py-2 flex flex-col items-center">
+                    <svg width="60px" height="60px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                        <style>.cls-1{fill:#283d23;}</style>
+                        </defs>
+                        <title/>
+                        <g>
+                        <polygon points="17 12 15 12 15 14.5 12.5 14.5 12.5 16.5 15 16.5 15 19 17 19 17 16.5 19.5 16.5 19.5 14.5 17 14.5 17 12"/> 
+                        <path d="M28,7.39A7.08,7.08,0,0,0,22.73,4a7.35,7.35,0,0,0-2.58.28,11.44,11.44,0,0,0-3.82,2.05L16,6.62l-.12-.1A13.4,13.4,0,0,0,14,5.23,8.29,8.29,0,0,0,9.27,4a6.16,6.16,0,0,0-1.42.28A6.86,6.86,0,0,0,5.11,6.07,10.49,10.49,0,0,0,4,7.39C.2,12.86,7.91,21.14,12.48,25.3c.56.52,1.08,1,1.52,1.34.65.56,1.14.95,1.38,1.14h1.24C18.31,26.45,33,14.53,28,7.39ZM16,25.71l-.48-.41c-.47-.39-1-.84-1.52-1.33C9.33,19.71,2.91,12.46,5.66,8.54a6.34,6.34,0,0,1,2.26-2.1A4,4,0,0,1,9.43,6,2.3,2.3,0,0,1,9.8,6a5.57,5.57,0,0,1,1.86.34l.46.18A10.34,10.34,0,0,1,14,7.6a10.69,10.69,0,0,1,1.29,1.06h1.43a10.9,10.9,0,0,1,3.36-2.22A5.51,5.51,0,0,1,22.56,6a1.77,1.77,0,0,1,.32,0,5.32,5.32,0,0,1,3.46,2.48C29.51,13.07,20.47,22,16,25.71Z"/>
+                        <path class="cls-1" d="M16,25.71l-.48-.41C20.09,21.14,27.8,12.86,24,7.39a10.66,10.66,0,0,0-1.1-1.33,5.32,5.32,0,0,1,3.46,2.48C29.51,13.07,20.47,22,16,25.71Z"/>
+                        </g>
+                        </svg>
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Day Care</h4>
+                    </div>
+                </div>
+                <div class="border-2 border-orange-400 hover:shadow-lg rounded-lg  px-6 py-2 flex flex-col items-center">
+                    <svg height="60px" width="60px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 496.863 496.863" xml:space="preserve">
+                    <g>
+                        <g>
+                            <path style="fill:#010002;" d="M397.225,376.505l8.765-8.764c-34.032-29.585-77.706-78.667-115.202-115.058
+                                c4.627-9.247,1.835-20.696-7.007-26.578c-40.439-26.865-55.751-46.149-73.473-68.485c-7.938-10.007-16.158-20.356-27.052-32.173
+                                c-1.001-1.09-2.092-2.036-3.245-2.854c-4.2-3.903-8.872-7.21-13.695-9.539c0,0-5.17-2.837-11.057-3.961
+                                c-5.634-1.073-12.173-1.113-12.173-1.113h-0.154c-0.637,0.018-1.288,0.137-1.92,0.175c-0.472,0.021-0.929-0.039-1.402,0
+                                c-0.771,0.084-1.553,0.246-2.325,0.355c-0.823,0.104-1.622,0.211-2.444,0.357c-40.544,6.36-83.214,37.981-130.265,96.637
+                                c-7.187,8.959-5.752,22.042,3.206,29.225c3.838,3.076,8.435,4.572,13,4.572c6.086,0,12.117-2.661,16.225-7.78
+                                c20.211-25.188,37.911-42.843,53.247-55.232l-17.072,79.668c-2.448,11.457,0.751,22.018,7.12,30.606l-5.375,82.018l-34.183,88.35
+                                c-5.265,13.627,1.513,28.963,15.133,34.223c3.143,1.208,6.373,1.788,9.548,1.788c10.607,0,20.623-6.429,24.683-16.918
+                                l35.633-92.14c0.965-2.503,1.546-5.134,1.725-7.804l3.131-47.737l31.441,49.67l26.036,95.287
+                                c3.154,11.824,13.854,19.641,25.547,19.641c2.256,0,4.548-0.285,6.83-0.906c14.116-3.751,22.509-18.243,18.751-32.371
+                                l-27.076-99.188c-0.683-2.591-1.772-5.067-3.206-7.327l-42.865-67.723c1.367-2.725,2.524-5.617,3.223-8.882l17.529-81.793
+                                c16.409,20.108,35.285,40.285,73.989,65.986c3.536,2.35,7.525,3.479,11.484,3.479c4.021,0,7.931-1.295,11.348-3.544
+                                C318.306,294.335,361.936,345.765,397.225,376.505z"/>
+                            <circle style="fill:#010002;" cx="179.169" cy="57.468" r="53.546"/>
+                            <path style="fill:#010002;" d="M342.466,382.65l-18.499-14.859c-4.182-3.357-10.297-2.695-13.659,1.489
+                                c-3.36,4.185-2.693,10.299,1.489,13.66l18.878,15.163v41.222c0,0.228,0.029,0.447,0.065,0.663l-16.618,31.936
+                                c-2.477,4.76-0.627,10.627,4.134,13.104c1.434,0.745,2.966,1.099,4.478,1.099c3.507,0,6.895-1.905,8.626-5.231l16.72-32.13
+                                l18.709,32.492c1.798,3.122,5.066,4.869,8.43,4.869c1.645,0,3.312-0.418,4.838-1.298c4.65-2.678,6.25-8.618,3.572-13.268
+                                l-16.325-28.349h60.462v33.196c0,5.365,4.351,9.716,9.717,9.716c5.365,0,9.716-4.351,9.716-9.716v-36.382
+                                c0.04-0.229,0.069-0.462,0.069-0.702v-30.726l-45.255-25.949L342.466,382.65L342.466,382.65z"/>
+                            <path style="fill:#010002;" d="M472.414,362.901c-6.006-5.659-8.02-12.281-14.763-17.081c-1.174-0.835-2.361-1.682-3.615-2.391
+                                c-0.751-0.422-0.995-0.912-0.909-1.729c0.287-2.784,0.57-5.572,0.793-8.362c0.397-4.997-1.043-9.546-5.056-12.493
+                                c-1.612-1.184-9.561-5.033-13.021,8.138c-0.756,2.867-1.774,5.717-3.136,8.331c-5.001,9.604-11.342,18.375-17.416,27.313
+                                c-2.771,4.078-5.537,8.149-8.299,12.215l42.489,24.198c0,0,8.189-8.955,9.339-8.452c1.596,0.704,3.201,1.394,4.798,2.089
+                                c4.679,2.034,9.557,2.978,14.668,2.677c8.687-0.505,17.731-5.118,18.559-15.531C497.608,372.267,474.444,364.813,472.414,362.901z
+                                "/>
+                        </g>
+                    </g>
+                    </svg>                    
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Dog walking</h4>
+                    </div>
+                </div>
+                <div class="border-2 border-orange-400 hover:shadow-lg rounded-lg  px-6 py-2 flex flex-col items-center">
+                    <svg height="60px" width="60px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 511.999 511.999" xml:space="preserve">
+                    <path style="fill:#000000;" d="M502.19,418.095c-11.272-48.664-18.019-98.266-18.019-148.218V66.689c0-24.853-20.147-45-45-45
+                        h-113.18v262.796H440.16c-1.17,39.707-7.641,89.696-17.81,133.613c-1.205,5.204-1.854,10.735-1.854,16.469
+                        c0,20.068,7.95,37.651,19.874,47.468v0.392h0.484c6.264,5.002,13.587,7.882,21.418,7.882c7.83,0,15.154-2.882,21.418-7.882h0.484
+                        v-0.392c11.923-9.816,19.874-27.401,19.874-47.468C504.045,428.832,503.396,423.3,502.19,418.095z"/>
+                    <path style="fill:#dad6d6;" d="M502.19,418.095c-11.272-48.664-18.019-98.266-18.019-148.218v-94.068V66.689
+                        c0-24.853-20.147-45-45-45h-23.996c24.853,0,45,20.147,45,45v109.12v94.068c0,49.952,6.746,99.554,18.019,148.218
+                        c1.206,5.206,1.855,10.739,1.855,16.473c0,20.068-7.95,37.651-19.874,47.468v0.392h-0.484c-2.926,2.337-6.087,4.203-9.419,5.537
+                        c3.8,1.521,7.826,2.346,11.999,2.346c7.83,0,15.154-2.882,21.418-7.882h0.484v-0.392c11.923-9.816,19.874-27.401,19.874-47.468
+                        C504.045,428.832,503.396,423.3,502.19,418.095z"/>
+                    <path style="fill:#000000;" d="M7.997,423.759c-1.359,38.948,29.812,70.95,68.457,70.95c31.812,0,58.552-21.687,66.258-51.082
+                        l0.021,0.12l27.847-118.506l32.567-12.375l47.586-260.844c2.352-12.894-2.227-26.076-12.066-34.735l0,0l-98.949,319.681l0,0
+                        c-10.185,10.836-23.66,18.009-38.336,20.407l-10.884,1.778l0.005,0.004c-6.185-1.29-12.674-1.755-19.352-1.246
+                        C37.138,360.508,9.186,389.666,7.997,423.759z M37.439,426.209c0-21.548,17.468-39.015,39.016-39.015s39.015,17.468,39.015,39.015
+                        c0,21.547-17.468,39.015-39.015,39.015S37.439,447.758,37.439,426.209z"/>
+                    <g>
+                        <path style="fill:#000000;" d="M65.713,359.159l-0.005-0.004l8.581-1.402c-1.042,0.033-2.086,0.08-3.137,0.16
+                            c-2.38,0.181-4.727,0.507-7.04,0.941C64.647,358.952,65.183,359.048,65.713,359.159z"/>
+                        <path style="fill:#ffffff;" d="M238.669,17.289L223.11,67.557l-44.752,245.31l-32.567,12.375l-27.847,118.506l-0.021-0.12
+                            c-6.679,25.472-27.654,45.146-53.834,49.946c4.013,0.732,8.142,1.136,12.367,1.136c31.812,0,58.552-21.687,66.258-51.082
+                            l0.021,0.12l27.847-118.506l32.567-12.375l47.586-260.844C253.086,39.129,248.508,25.947,238.669,17.289z"/>
+                    </g>
+                    <path style="fill:#000000;" d="M279.386,357.913c-6.678-0.509-13.166-0.043-19.352,1.246l0.005-0.004l-10.884-1.778
+                        c-14.677-2.397-28.152-9.571-38.337-20.407l0,0L111.871,17.289l0,0c-9.839,8.659-14.419,21.841-12.066,34.735l47.586,260.844
+                        l32.567,12.375l27.847,118.506l0.021-0.12c7.706,29.395,34.447,51.082,66.258,51.082c38.645,0,69.815-32.002,68.456-70.95
+                        C341.353,389.666,313.401,360.508,279.386,357.913z M274.085,465.226c-21.548,0-39.015-17.468-39.015-39.015
+                        c0-21.547,17.468-39.015,39.015-39.015c21.547,0,39.016,17.468,39.016,39.015C313.102,447.758,295.632,465.226,274.085,465.226z"/>
+                    <g>
+                   <path style="fill:#000000;" d="M103.082,69.99l82.637,266.979l0,0c10.185,10.836,23.66,18.009,38.336,20.407l10.884,1.778
+                       l-0.005,0.004c5.324-1.11,10.873-1.606,16.574-1.398l-2.352-0.384c-14.677-2.397-28.152-9.571-38.337-20.407l0,0l-98.949-319.68
+                       c-9.839,8.659-14.419,21.841-12.066,34.735L103.082,69.99z"/>
+                   <path style="fill:#000000;" d="M342.542,423.759c-1.189-34.092-29.141-63.251-63.156-65.846c-6.162-0.47-12.16-0.101-17.909,0.971
+                       c30.679,5.834,54.861,33.221,55.965,64.876c1.208,34.634-23.313,63.754-55.931,69.784c4.078,0.757,8.278,1.166,12.574,1.166
+                       C312.729,494.709,343.9,462.708,342.542,423.759z"/>
+                    </g>
+                    <path d="M509.94,416.303c-2.261-9.763-4.333-19.559-6.159-29.117c-0.824-4.316-4.992-7.142-9.306-6.321
+                        c-4.316,0.824-7.145,4.991-6.32,9.306c1.865,9.759,3.979,19.759,6.286,29.72c1.095,4.726,1.649,9.663,1.649,14.676
+                        c0,16.871-6.505,32.707-16.975,41.327c-0.065,0.054-0.129,0.108-0.192,0.162c-0.067,0.051-0.134,0.103-0.199,0.155
+                        c-5.034,4.02-10.724,6.144-16.454,6.144c-5.73,0-11.421-2.124-16.454-6.144c-0.066-0.052-0.133-0.104-0.199-0.155
+                        c-0.063-0.055-0.127-0.109-0.192-0.162c-10.47-8.621-16.975-24.456-16.975-41.327c0-5.012,0.555-9.949,1.649-14.674
+                        c10.837-46.801,16.897-92.29,18.012-135.203c0.055-2.143-0.757-4.22-2.255-5.758c-1.498-1.536-3.552-2.403-5.698-2.403H333.946
+                        v-21.591h95.879c4.393,0,7.955-3.56,7.955-7.955c0-4.394-3.562-7.954-7.955-7.954h-95.879v-22.812h95.879
+                        c4.393,0,7.955-3.56,7.955-7.955c0-4.394-3.562-7.954-7.955-7.954h-95.879v-22.812h95.879c4.393,0,7.955-3.56,7.955-7.955
+                        s-3.562-7.955-7.955-7.955h-95.879v-22.812h95.879c4.393,0,7.955-3.56,7.955-7.955c0-4.394-3.562-7.955-7.955-7.955h-95.879v-22.81
+                        h95.879c4.393,0,7.955-3.56,7.955-7.955c0-4.394-3.562-7.955-7.955-7.955h-95.879V61.332h43.978c4.393,0,7.954-3.56,7.954-7.955
+                        s-3.561-7.955-7.954-7.955h-43.978v-15.78H439.17c20.427,0,37.046,16.619,37.046,37.046v203.188c0,30.218,2.488,61.811,7.394,93.901
+                        c0.664,4.342,4.723,7.321,9.066,6.661c4.342-0.664,7.325-4.723,6.661-9.066c-4.785-31.297-7.211-62.08-7.211-91.497V66.688
+                        c0-29.199-23.755-52.955-52.955-52.955h-113.18c-4.393,0-7.954,3.56-7.954,7.955v262.796c0,4.394,3.561,7.954,7.954,7.954h105.943
+                        c-1.602,39.442-7.425,81.068-17.336,123.866c-1.366,5.9-2.059,12.044-2.059,18.264c0,21.014,7.889,40.372,21.2,52.26
+                        c0.889,1.337,2.171,2.388,3.681,2.991c7.522,5.532,16.074,8.446,24.848,8.446c8.773,0,17.326-2.913,24.848-8.446
+                        c1.51-0.602,2.791-1.655,3.681-2.991c13.311-11.888,21.2-31.246,21.2-52.26C511.999,428.349,511.306,422.205,509.94,416.303z"/>
+                    <path d="M403.981,45.423c-4.393,0-7.955,3.56-7.955,7.955s3.562,7.955,7.955,7.955h25.844c4.393,0,7.955-3.56,7.955-7.955
+                        s-3.562-7.955-7.955-7.955H403.981z"/>
+                    <path d="M279.991,349.981c-6.734-0.511-13.479-0.145-20.075,1.094l-9.478-1.548c-12.289-2.008-23.792-7.924-32.583-16.724
+                        l-6.455-20.854l47.159-258.499c2.836-15.547-2.772-31.692-14.637-42.133c-2.025-1.782-4.812-2.418-7.411-1.684
+                        c-2.596,0.73-4.644,2.727-5.442,5.304l-55.8,180.278L119.47,14.937c-0.798-2.577-2.847-4.574-5.442-5.304
+                        c-2.596-0.733-5.386-0.098-7.411,1.684C94.751,21.759,89.143,37.902,91.979,53.45l17.419,95.485
+                        c0.789,4.322,4.932,7.185,9.254,6.398c4.322-0.788,7.186-4.931,6.398-9.253l-17.42-95.485c-0.963-5.276-0.426-10.66,1.406-15.563
+                        l58.634,189.435c0,0,0,0,0,0.001l27.956,90.323c0,0.001,0.001,0.002,0.001,0.003l7.592,24.527c0.357,1.155,0.974,2.213,1.802,3.095
+                        c11.319,12.044,26.537,20.145,42.85,22.811l10.561,1.725c1.039,0.212,2.134,0.222,3.224-0.006
+                        c5.606-1.171,11.366-1.543,17.122-1.102c29.734,2.269,54.771,28.374,55.811,58.193c0.579,16.602-5.441,32.309-16.951,44.227
+                        c-11.516,11.924-26.985,18.492-43.557,18.492c-27.512,0-51.594-18.565-58.564-45.145c-0.057-0.218-0.124-0.434-0.198-0.644
+                        l-27.621-117.543c-0.605-2.573-2.448-4.677-4.918-5.616l-4.679-1.779c-0.003-0.001-0.006-0.003-0.01-0.004l-23.684-9l-24.602-134.87
+                        c-0.789-4.322-4.933-7.188-9.254-6.398c-4.322,0.788-7.186,4.931-6.398,9.253l24.982,136.94l-6.455,20.854
+                        c-8.79,8.8-20.292,14.716-32.581,16.724l-9.479,1.548c-6.585-1.236-13.355-1.606-20.076-1.093
+                        c-38.196,2.915-69.163,35.2-70.499,73.502c-0.731,20.954,6.872,40.782,21.406,55.834c14.541,15.056,34.074,23.349,55.001,23.349
+                        c34.38,0,64.52-22.962,73.671-55.976c0.143-0.36,0.261-0.733,0.352-1.12l24.792-105.503l24.792,105.503
+                        c0.091,0.386,0.209,0.76,0.352,1.12c9.153,33.014,39.292,55.976,73.671,55.976c20.927,0,40.459-8.292,55-23.349
+                        c14.536-15.05,22.138-34.88,21.407-55.834C349.156,385.181,318.188,352.895,279.991,349.981z M241.504,35.034
+                        c1.833,4.902,2.368,10.285,1.406,15.562l-41.683,228.48l-17.63-56.961L241.504,35.034z M135.217,440.967
+                        c-0.074,0.21-0.141,0.425-0.198,0.644c-6.969,26.581-31.051,45.145-58.564,45.145c-16.572,0-32.041-6.566-43.557-18.492
+                        c-11.51-11.918-17.53-27.625-16.949-44.227c1.039-29.819,26.076-55.924,55.809-58.193c1.56-0.119,3.139-0.179,4.694-0.179
+                        c4.172,0,8.353,0.431,12.429,1.281c1.081,0.224,2.168,0.218,3.202,0.01l10.585-1.728c16.313-2.666,31.531-10.766,42.849-22.811
+                        c0.828-0.88,1.445-1.94,1.802-3.095l4.977-16.082l9.717,3.693L135.217,440.967z"/>
+                    <path d="M274.085,473.18c25.9,0,46.971-21.07,46.971-46.97c0-25.9-21.071-46.971-46.971-46.971s-46.971,21.071-46.971,46.971
+                        C227.114,452.11,248.185,473.18,274.085,473.18z M274.085,395.149c17.128,0,31.062,13.934,31.062,31.062
+                        c0,17.127-13.934,31.061-31.062,31.061c-17.128,0-31.062-13.934-31.062-31.061C243.023,409.082,256.958,395.149,274.085,395.149z"/>
+                    <path d="M76.454,379.24c-25.899,0-46.97,21.071-46.97,46.971c0,25.9,21.071,46.97,46.97,46.97c25.9,0,46.971-21.07,46.971-46.97
+                        C123.425,400.311,102.354,379.24,76.454,379.24z M76.454,457.271c-17.127,0-31.061-13.934-31.061-31.061
+                        c0-17.128,13.934-31.062,31.061-31.062c17.128,0,31.062,13.934,31.062,31.062C107.516,443.337,93.582,457.271,76.454,457.271z"/>
+                    </svg>
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Grooming</h4>
+                    </div>
+                </div>
+                <div class="border-2 border-orange-400 rounded-lg hover:shadow-lg px-6 py-2 flex flex-col items-center">
+                    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                            width="60px" height="60px" viewBox="0 0 467.332 467.332"
+                            xml:space="preserve">
+                    <g>
+                        <path d="M467.332,287.18l-19.429,16.28L229.705,43.112L19.726,303.277L0,287.353L216.241,19.431
+                            c3.288-4.075,8.092-6.432,13.177-6.487c5.05-0.015,9.938,2.237,13.304,6.249L467.332,287.18z M226.513,66.857L62.688,269.844
+                            l32.375,184.544h57.8l-15.706-108.558c-4.258-29.396,16.374-53.232,46.087-53.232h98.351c29.706,0,49.77,23.745,44.818,53.029
+                            L308,454.377h47.977l47.647-184.539L233.415,66.796C231.485,64.491,228.405,64.521,226.513,66.857z M218.95,368.824
+                            c8.831-4.605,10.707-18.469,4.189-30.96c-6.515-12.492-18.956-18.886-27.789-14.279c-8.831,4.605-10.705,18.468-4.189,30.96
+                            C197.678,367.037,210.119,373.429,218.95,368.824z M195.015,370.834c-6.515-12.486-18.956-18.88-27.787-14.269
+                            c-8.831,4.605-10.707,18.463-4.192,30.955c6.515,12.486,18.956,18.875,27.789,14.264
+                            C199.656,397.179,201.532,383.322,195.015,370.834z M272.398,354.535c6.521-12.487,4.642-26.35-4.189-30.956
+                            c-8.83-4.61-21.271,1.782-27.786,14.274c-6.518,12.492-4.642,26.354,4.189,30.961C253.442,373.419,265.883,367.031,272.398,354.535
+                            z M296.356,356.585c-8.831-4.605-21.271,1.783-27.787,14.27c-6.52,12.486-4.641,26.35,4.189,30.955
+                            c8.831,4.611,21.271-1.782,27.787-14.269C307.06,375.054,305.186,361.197,296.356,356.585z M264.212,407.975
+                            c0.3-1.63,0.487-3.311,0.487-5.032c0-15.062-15.731-30.793-30.793-30.793c-15.061-0.01-30.785,15.722-30.785,30.782
+                            c0,1.682,0.17,3.326,0.47,4.937c-9.76,0.497-14.022,12.014-14.022,21.896c0,10.207,8.267,18.469,18.471,18.469
+                            c9.229,0,23.207-6.281,25.327-6.819c10.96,5.718,16.191,6.819,25.327,6.819c10.206,0,18.474-8.262,18.474-18.469
+                            C277.171,420.244,273.459,408.986,264.212,407.975z"/>
+                    </g>
+                    </svg>                    
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Boarding</h4>
+                    </div>
+                </div>
+                <div class="border-2 border-orange-400 rounded-lg hover:shadow-lg px-6 py-2 flex flex-col items-center">
+                    <svg fill="#000000" height="60px" width="60px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 511.999 511.999" xml:space="preserve">
+                        <g>
+                            <g>
+                                <circle cx="92.996" cy="86.548" r="39.909"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M511.64,365.692c-0.803-1.667-2.83-2.653-5.028-1.594c-8.582,4.121-17.939,6.362-26.779,6.851
+                                    c-9.371,0.315-17.462-0.98-26.541-6.147c-0.875-4.685-2.828-9.151-5.778-13.015l-49.881-65.327c0,0,1.002-7.345,2.09-15.636
+                                    c-3.675,0.588-7.571,0.977-11.012,0.977c-9.303,0-15.437-2.865-18.233-8.517c-4.958-10.02,4.747-20.518,7.937-23.968
+                                    c2.602-2.815,6.13-6.119,9.263-8.594l-0.207-0.124c-3.825-2.286-8.12-3.427-12.415-3.427c-4.419,0-8.836,1.208-12.736,3.621
+                                    l-11.379-2.573c-2.029-0.459-4.209-0.047-5.961,1.225c-1.718,1.246-2.816,3.173-3.013,5.287l-0.876,9.403
+                                    c-0.715,7.672,3.68,14.907,10.82,17.806c3.074,1.248,5.49,3.723,6.682,6.82c1.19,3.096,1.05,6.547-0.391,9.534
+                                    c-4.438,9.197-10.542,22.378-14.806,33.691c-14.038-11.349-11.825-9.559-34.272-27.705c-4.278-3.461-10.558-2.797-14.018,1.486
+                                    c-3.461,4.281-2.796,10.558,1.486,14.019c50.848,41.104,78.688,61.514,96.03,74.522c2.334-5.624,5.841-11.037,10.495-15.819
+                                    c2.063-2.12,5.453-2.165,7.571-0.104c2.119,2.062,2.166,5.452,0.102,7.571c-5.364,5.511-8.344,12.109-10.479,18.667
+                                    c-2.808,8.625-3.553,28.346-0.05,39.95l-8.906,24.615c-1.872,5.177,0.806,10.892,5.982,12.765
+                                    c5.182,1.874,10.893-0.808,12.766-5.982l10.06-27.805c22.892-9.376,31.265-31.07,33.058-44.507
+                                    c10.211,2.197,18.656,1.871,28.44-0.28c10.017-2.392,20.177-6.847,28.86-13.199C511.9,369.171,512.41,367.289,511.64,365.692z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M409.032,244.212c-2.582-5.219-7.232-8.392-10.578-8.392c-0.675,0-1.297,0.129-1.84,0.398
+                                    c-3.225,1.596-20.6,16.521-17.497,22.795c1.163,2.351,5.036,3.153,9.595,3.153c7.608,0,17.124-2.234,19.14-3.232
+                                    C411.077,257.338,412.135,250.485,409.032,244.212z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M306.193,8.077c-52.418,0-95.064,42.645-95.064,95.064c0,14.424,3.245,28.099,9.018,40.358l-34.338,19.021l-47.476-12.89
+                                    c-4.875-6.715-12.771-11.099-21.705-11.139l-37.49-0.169c-7.206-0.032-14.125,2.821-19.213,7.924
+                                    c-4.942,4.957-7.748,11.636-7.857,18.618l0.004,1.519L4.821,224.027c-4.011,5.031-5.253,11.75-3.274,17.901
+                                    c4.575,14.237,17.89,55.68,24.006,74.713c3.231,10.048,14.035,15.711,24.228,12.433c10.096-3.249,15.698-14.078,12.433-24.228
+                                    l-20.4-63.408l45.652-57.268l-25.893,58.321l18.24,56.693c6.354,19.746-4.513,41.099-24.369,47.488
+                                    c-3.587,1.154-7.302,1.747-11.048,1.798l-4.863,30.419L1.702,472.121c-4.799,11.825,0.899,25.302,12.724,30.1
+                                    s25.302-0.899,30.1-12.724l38.821-95.671c0.658-1.621,1.129-3.313,1.406-5.041l12.472-78.033l20.287,78.937l1.91,91.601
+                                    c0.265,12.728,10.786,22.882,23.584,22.62c12.76-0.266,22.888-10.825,22.62-23.584l-1.965-94.278
+                                    c-0.037-1.778-0.28-3.548-0.723-5.271l-20.03-77.935l0.454-111.943l39.894,10.832c4.724,1.283,9.893,0.745,14.376-1.739
+                                    l45.919-25.437c16.742,14.702,38.659,23.645,62.638,23.645c52.418,0,95.063-42.645,95.063-95.063
+                                    C401.254,50.722,358.61,8.077,306.193,8.077z M306.193,175.367c-16.184,0-31.141-5.35-43.196-14.374
+                                    c3.558-5.735,3.999-13.17,0.497-19.493c-4.615-8.333-14.493-11.879-23.191-8.831c-4.059-9.022-6.339-19.012-6.339-29.53
+                                    c0-39.827,32.401-72.228,72.228-72.228c39.825,0,72.227,32.401,72.227,72.228S346.018,175.367,306.193,175.367z"/>
+                            </g>
+                        </g>
+                        </svg>
+                                   <div class="card-body mt-3 ">
+                        <h4 class="card-title">Training</h4>
+                    </div>
+                </div>
+                <div class="border-2 border-orange-400 rounded-lg hover:shadow-lg  px-6 py-2 flex flex-col items-center">
+                    <svg  fill="#000000" width="60px" height="60px" viewBox="0 0 50 50" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" overflow="inherit"><path d="M18.48 18.875c2.33-.396 4.058-2.518 4.321-5.053.267-2.578.869-12.938-3.02-12.279-10.088 1.711-9.38 18.702-1.301 17.332zm13.273 0c8.077 1.37 8.785-15.621-1.303-17.333-3.888-.659-3.287 9.701-3.021 12.279.264 2.536 1.994 4.658 4.324 5.054zm-17.417 8.005c0-1.348-.481-2.57-1.256-3.459-1.275-1.666-5.328-5.035-6.323-4.172-2.077 1.806-2.01 6.251-.759 9.481.643 1.796 2.196 3.059 4.011 3.059 2.389 0 4.327-2.198 4.327-4.909zm29.137-7.631c-.993-.863-5.046 2.506-6.321 4.172-.775.889-1.257 2.111-1.257 3.459 0 2.711 1.94 4.909 4.327 4.909 1.816 0 3.37-1.263 4.013-3.059 1.248-3.23 1.317-7.675-.762-9.481zm-8.136 15.277c-3.676-1.833-3.562-5.363-4.398-8.584-.665-2.569-3.02-4.469-5.823-4.469-2.743 0-5.057 1.821-5.779 4.312-.895 3.082-.356 6.67-4.363 8.717-3.255 1.061-4.573 2.609-4.573 6.27 0 2.974 2.553 6.158 5.848 6.554 3.676.554 6.544-.17 8.867-1.494 2.323 1.324 5.189 2.047 8.871 1.494 3.293-.396 5.847-3.568 5.847-6.554-.001-3.741-1.235-5.135-4.497-6.246zm-4.337 4.474h-3.811l.005 4h-4.156l.006-4h-4.044v-4h4.045l-.006-4h4.156l-.005 4h3.81v4z"/></svg>                    
+                    <div class="card-body mt-3 ">
+                        <h4 class="card-title">Veterinary Care</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {{-- about us section --}}
+
+        <div class="h-full px-4 sm:px-8 md:px-16 my-10 sm:my-16 lg:my-20 max-w-screen-xl mx-auto">
+            <div class="flex items-center max-w-screen-xl">
+                <div class="flex p-4 sm:p-6 md:p-10">
+                    <div class="flex flex-col">
+                        <h2 class="my-4 font-bold text-2xl sm:text-3xl lg:text-4xl text-center">About <span class="text-orange-600">Our Company</span></h2>
+                        <p class="text-gray-700 text-center">
+                            Welcome to FavePet, where our love for pets drives everything we do!
+                            
+                            At FavePet, we're more than just a store – we're a family of passionate pet lovers dedicated to providing top-quality products and exceptional service to our furry, feathered, and scaly friends.
+                            
+                            With a carefully curated selection of premium pet supplies, from nutritious foods and tasty treats to cozy beds and engaging toys, we've got everything you need to keep your pets happy and healthy. But we're not just about selling products – we're here to offer guidance and support to help you make the best choices for your pet's well-being.
+                        </p>
+                        <div class="my-4 text-center">
+                            <a href="#" class="text-orange-400 hover:text-orange-700 font-medium">Learn more about us
+                            <span class="ml-2">&#8594;</span></a>
+                        </div>
+                        <div class="image object-center text-center">
+                            <img src="{{ asset('imgs/Pet.png') }}" alt="about us">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+
+        </div>
+     <!--contact us-->
+     <div class="h-full max-w-screen-xl mx-auto my-20">
+    <div class="pt-2 md:pt-2">
+        <div class="p-4 md:p-6">
+            <h1 class="text-center pb-10 font-bold text-4xl"> Contact Us </h1>
+            <form class="flex flex-col items-center">
+                <div class="md:w-3/4 lg:w-2/3 xl:w-1/2 ">
+                    <div class="flex flex-col md:flex-row">
+                        <input id="name" type="text"
+                            class="my-2 py-2 px-4 border-orange-400 rounded-md w-full md:w-1/2 md:mr-2 outline-none focus:none"
+                            placeholder="Name">
+                        <input id="email" type="email"
+                            class="my-2 py-2 px-4 border-orange-400 rounded-md w-full md:w-1/2 md:ml-2 outline-none focus:none"
+                            placeholder="Email">
+                    </div>
+                    <input id="subject" type="text" placeholder="Subject"
+                        class="my-2 py-2 px-4 rounded-md border-orange-400 w-full outline-none focus:none">
+                    <textarea id="message" rows="5" placeholder="Say Something"
+                        class="my-2 py-2 px-4 rounded-md border-orange-400 w-full outline-none focus:none"></textarea>
+                </div>
+                <button
+                    class="border-2 text-md mt-5 rounded-md py-2 px-4 border-orange-400 hover:bg-orange-500 text-black transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-600">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+           
+<!--Footer-->
+<footer
+  class="bg-teal-950 shadow-lg ">
+  <!-- Social icons -->
+  <div class="border-b-2 border-neutral-200 p-6">
+    <div class="container mx-auto px-10">
+      <div class="flex items-center justify-center lg:justify-between">
+        <div class="me-12 hidden lg:block text-white">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <div class="flex justify-center">
+          <a href="#!" class="me-6 text-gray-500 dark:text-gray-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+            </svg>
+          </a>
+          <a href="#!" class="me-6 text-gray-500 dark:text-gray-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+            </svg>
+          </a>
+          <a href="#!" class="me-6 text-gray-500 dark:text-gray-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M7 11v2.4h3.97c-.16 1.029-1.2 3.02-3.97 3.02-2.39 0-4.34-1.979-4.34-4.42 0-2.44 1.95-4.42 4.34-4.42 1.36 0 2.27.58 2.79 1.08l1.9-1.83c-1.22-1.14-2.8-1.83-4.69-1.83-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.721-2.84 6.721-6.84 0-.46-.051-.81-.111-1.16h-6.61zm0 0 17 2h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2z"
+                fill-rule="evenodd"
+                clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="#!" class="me-6 text-gray-500 dark:text-gray-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="#!" class="me-6 text-gray-500 dark:text-gray-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+            </svg>
+          </a>
+          <a href="#!" class="text-gray-500 dark:text-gray-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Social icons -->
+
+  <!-- Main footer content -->
+  <div class="container mx-auto px-4">
+    <div class="mx-6 py-10 text-center md:text-left text-white">
+      <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div class="gap-2 px-8">
+            <div class="flex items-center gap-2">
+                <svg fill="#f97316" height="30px" width="30px" version="1.1"  id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 228.804 228.804" xml:space="preserve">
+                <g>
+                    <path d="M184.475,161.189c-2.368-3.731-19.724-30.767-34.558-45.068c-12.376-11.883-30.9-12.227-33-12.227
+                        c-0.191,0.001-0.383,0.008-0.571,0.023h-4.491c-1.984,0-19.761,0.338-32.763,12.042C63.05,130.416,45.3,159.575,44.058,161.63
+                        c-9.403,14.867-15.166,24.536-15.166,35.286c0,19.371,14.193,31.888,36.158,31.888h98.711c21.959,0,36.148-12.529,36.148-31.92
+                        c0-10.845-5.777-20.5-15.205-35.353C184.63,161.415,184.554,161.3,184.475,161.189z M163.761,213.804H65.05
+                        c-7.902,0-21.158-2.194-21.158-16.888c0-6.279,4.126-13.489,12.885-27.334c0.029-0.046,0.058-0.093,0.087-0.14
+                        c0.175-0.29,17.631-29.146,32.267-42.336c8.925-8.034,22.597-8.187,22.73-8.188h5.08c0.143,0,0.284-0.004,0.426-0.012
+                        c2.441,0.092,14.739,0.907,22.152,8.024c14.283,13.772,32.324,42.347,32.505,42.634c0.081,0.129,0.165,0.254,0.253,0.376
+                        c9.316,14.698,12.633,21.018,12.633,26.942C184.909,210.868,173.408,213.804,163.761,213.804z"/>
+                    <path d="M78.198,85.731c16.929,0,30.189-18.831,30.189-42.87C108.388,18.827,95.127,0,78.198,0
+                        C61.271,0,48.011,18.827,48.011,42.861C48.011,66.901,61.271,85.731,78.198,85.731z M78.198,15
+                        c7.184,0,15.189,11.442,15.189,27.861c0,16.424-8.006,27.87-15.189,27.87s-15.188-11.446-15.188-27.87
+                        C63.011,26.442,71.015,15,78.198,15z"/>
+                    <path d="M38.664,137.296c2.951,0,5.77-0.607,8.413-1.82c13.162-6.12,16.827-25.327,8.34-43.731
+                        C48.832,77.493,36.65,67.918,25.101,67.918c-2.954,0-5.777,0.609-8.401,1.817C3.52,75.834-0.157,95.045,8.332,113.481
+                        c6.585,14.244,18.774,23.814,30.33,23.815H38.664z M21.952,107.197c-5.076-11.024-3.635-21.683,1.033-23.842
+                        c0.639-0.294,1.33-0.437,2.115-0.437c4.71,0,12.162,5.298,16.697,15.113c5.076,11.008,3.635,21.668-1.011,23.828
+                        c-0.642,0.294-1.336,0.438-2.123,0.438C33.947,122.296,26.486,117,21.952,107.197z"/>
+                    <path d="M150.591,85.731c16.923,0,30.18-18.831,30.18-42.87C180.771,18.827,167.514,0,150.591,0
+                        c-16.939,0-30.207,18.827-30.207,42.861C120.384,66.901,133.652,85.731,150.591,85.731z M150.591,15
+                        c7.18,0,15.18,11.442,15.18,27.861c0,16.424-8,27.87-15.18,27.87c-7.192,0-15.207-11.446-15.207-27.87
+                        C135.384,26.442,143.399,15,150.591,15z"/>
+                    <path d="M212.104,69.737c-2.617-1.212-5.447-1.827-8.411-1.827c-11.532,0-23.71,9.578-30.299,23.827
+                        c-8.525,18.396-4.863,37.61,8.368,43.756c2.609,1.197,5.429,1.804,8.38,1.804c11.559,0,23.745-9.572,30.324-23.822
+                        C228.962,95.052,225.287,75.839,212.104,69.737z M206.846,107.19c-4.53,9.812-11.987,15.106-16.704,15.106
+                        c-0.788,0-1.482-0.143-2.093-0.423c-4.696-2.181-6.141-12.835-1.043-23.835c4.544-9.827,11.988-15.129,16.687-15.129
+                        c0.781,0,1.47,0.143,2.107,0.438C210.484,85.517,211.926,96.175,206.846,107.19z"/>
+                </g>
+                </svg>
+                <p class="text-white text-3xl">Fav<span class="text-orange-500">Pet</span></p>
+            </div>
+          <p class="mt-2">
+            At FavePet, we're here to make sure your furry friends get the love and care they deserve.
+            Join our community and let's make tails wag together!
+          </p>
+        </div>
+        <div class="">
+          <h6
+            class="mb-4 flex justify-center font-semibold uppercase md:justify-start text-orange-500">
+            Services
+          </h6>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Day care</a
+            >
+          </p>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Dog walking</a
+            >
+          </p>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500">Grooming</a>
+          </p>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Boarding</a
+            >
+          </p>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Training</a
+            >
+          </p> 
+          <p>
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Veterinary care</a
+            >
+          </p>
+        </div>
+        <div class="">
+          <h6
+            class="mb-4 flex justify-center font-semibold uppercase md:justify-start text-orange-500">
+            Utility Pages
+          </h6>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Home</a
+            >
+          </p>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Pets</a
+            >
+          </p>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Products</a
+            >
+          </p>
+          <p class="mb-4">
+            <a href="#!" class="text-white hover:text-orange-500"
+              >Services</a
+            >
+          </p>
+          <p>
+            <a href="#!" class="text-white hover:text-orange-500"
+              >About us</a
+            >
+          </p>
+        </div>
+        <div>
+          <h6
+            class="mb-4 flex justify-center font-semibold uppercase md:justify-start text-orange-500">
+            Contact
+          </h6>
+          <p class="mb-4 flex items-center justify-center md:justify-start text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="me-3 h-5 w-5">
+              <path
+                d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+              <path
+                d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+            </svg>
+            Favpet@gmail.com
+          </p>
+          <p class="mb-4 flex items-center justify-center md:justify-start text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="me-3 h-5 w-5">
+              <path
+                fill-rule="evenodd"
+                d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                clip-rule="evenodd" />
+            </svg>
+            + 212 6 16 32 97 01 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main footer content -->
+
+  <!-- Copyrights -->
+  <div class="bg-teal-950 shadow-lg p-6 text-center text-white">
+    <span>© 2024 Copyright:</span>
+    <a class="text-white" href="#">Fav<span class="text-orange-500">Pet</span></a>
+  </div>
+  
+</footer>
+ 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <script>
+            document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        </script>
+        
     </body>
 </html>

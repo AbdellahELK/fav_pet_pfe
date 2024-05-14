@@ -18,6 +18,14 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
+Route::get('/products/toys', function () {
+    return view('pages.products.toys');
+});
+Route::get('/products/food', function () {
+    return view('pages.products.food');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
